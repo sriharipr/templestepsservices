@@ -1,0 +1,7 @@
+{
+  "name": "templesteps",
+  "description": "services application for templesteps apps",
+  "repository": "https://github.com/sriharipr/templestepsservices",
+  "image":"heroku/nodejs"
+
+}

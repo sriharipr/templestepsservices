@@ -4,7 +4,7 @@
   "description": "services application for templesteps apps",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/sriharipr/templestepsservices/issues"
   },
-  "homepage": "https://github.com/sriharipr/templestepsservices#readme"
+  "homepage": "https://github.com/sriharipr/templestepsservices#readme",
+  "devDependencies": {
+    "webpack": "^4.12.0",
+    "webpack-dev-server": "^3.1.4"
+  }
 }

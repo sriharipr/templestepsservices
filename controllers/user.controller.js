@@ -62,7 +62,6 @@ exports.findOne = (req, res) => {
 };
 
 exports.authenticate = (req,res) => {
-  console.log(req.body.userName);
   User.findOne({userName:req.body.userName}).then(user => {
     if(!user) {
       return res.status(404).send({
@@ -85,7 +84,8 @@ exports.authenticate = (req,res) => {
     return res.status(200).send({
       success:true,
       message:'Enjoy the Token',
-      token:token
+      token:token,
+      userName: user.userName
     })
   })
 }

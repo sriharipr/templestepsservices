@@ -6,6 +6,12 @@ const TempleSchema = mongoose.Schema({
     type: String,
     required:[true, 'Title missing'],
   },
+  content: {
+    type: String,
+    required:[true, 'Content Missing']
+  }
+  
+  /*,
   state: String,
   district: String,
   town: {
@@ -18,13 +24,11 @@ const TempleSchema = mongoose.Schema({
   nearestDomesticAirport: String,
   nearestInternationalAirport: String,
   latitude: String,
-  longiTude: String,
-  images: [imageSchema],
-  comments: [ObjectId]
+  longiTude: String,*/
 },{
   timestamps:true
 });
 
-module.exports = mongoose.Model('Temple', TempleSchema);
+module.exports = mongoose.model('Temple', TempleSchema);
 
 

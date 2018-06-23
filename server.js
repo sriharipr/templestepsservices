@@ -31,6 +31,8 @@ app.get('/',(req,res) => {
 
 require('./routes/user.routes.js')(app);
 require('./routes/note.routes.js')(app);
+require('./routes/temple.routes.js')(app);
+require('./routes/comment.routes.js')(app);
 
 app.listen(app.get('port'),()=>{
   console.log(`server is running on port ${app.get('port')}`)
