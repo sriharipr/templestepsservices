@@ -23,7 +23,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
-  Temple.find().populate('temple').then( temples => {
+  Temple.find().populate('comments').then( temples => {
     res.send(temples);
   }).catch(err => {
     res.status(500).send({

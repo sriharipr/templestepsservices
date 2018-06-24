@@ -9,21 +9,34 @@ exports.create = (req, res) => {
       message: "Comment Content / title cannot be empty"
     })
   }
-  Temple.findById(req.body.temple).then(temple => {
-    const comment = new Comment({
-      content: req.body.content,
-      createdBy: req.body.createdBy,
-      temple: temple._id
-    })
-  
-    comment.save().then(data => {
-      res.send(data);
-    }).catch(err => {
-      res.status(500).send({
-        message: err.message || 'Some Error Occured While Creating a Comment.'
+  const comment = new Comment({
+    content: req.body.content,
+    createdBy: req.body.createdBy,
+    temple: req.body.temple
+  })
+
+  comment.save().then(data => {
+    Temple.findById(req.body.temple)
+      .then(temple => {
+        if(!temple.comments){
+          temple.comments = [comment._id]
+        }
+        else{
+          temple.comments.push(comment._id);
+        }
+        temple.save().then(updatedTemple => {
+          console.log(updatedTemple);
+          res.send(updatedTemple);
+        })
       })
+
+    
+  }).catch(err => {
+    res.status(500).send({
+      message: err.message || 'Some Error Occured While Creating a Comment.'
     })
-  });
+  })
+  
   
 };
 

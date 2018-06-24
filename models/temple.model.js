@@ -1,5 +1,4 @@
-var mongoose = require('mongoose');
-var imageSchema   =  require('./images.model');
+const mongoose = require('mongoose');
 
 const TempleSchema = mongoose.Schema({
   title:{
@@ -9,8 +8,8 @@ const TempleSchema = mongoose.Schema({
   content: {
     type: String,
     required:[true, 'Content Missing']
-  }
-  
+  },
+  comments: [{type:mongoose.Schema.Types.ObjectId,ref:"Comment"}]
   /*,
   state: String,
   district: String,
