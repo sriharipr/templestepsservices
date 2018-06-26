@@ -34,7 +34,7 @@ exports.findAll = (req, res) => {
 
 // Find a single note with a noteId
 exports.findOne = (req, res) => {
-  Temple.findById(req.params.templeId).then(temple => {
+  Temple.findById(req.params.templeId).populate('comments').then(temple => {
     if(!temple) {
       return res.status(404).send({
         message: "Temple not found with id " + req.params.templeId
